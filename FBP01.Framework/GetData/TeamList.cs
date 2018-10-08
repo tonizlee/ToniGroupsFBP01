@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace FBP01.Framework.Model
+namespace FBP01.Framework.GetData
 {
     public class TeamList
     {
@@ -15,6 +15,7 @@ namespace FBP01.Framework.Model
 
             foreach (JObject tempElement in team1)
             {
+                //팀이름 가져오기
                 var teamname = tempElement["name"] ?? "<NULL>";
                 Console.WriteLine(teamname);
             }

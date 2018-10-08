@@ -6,7 +6,7 @@ namespace FBP01.Framework.Controller
 {
     public class EndpointMaking
     {
-        public string Endpoint_Team(int token)
+        public string TeamSelect(int token)
         {
             string retval = "competitions";
             string league = null;
@@ -63,9 +63,21 @@ namespace FBP01.Framework.Controller
                     break;
             }
 
-            retval = retval + league + "/teams";
+            return retval + league;
+        }
 
-            return retval;
+        public string Endpoint_Team(int token)
+        {
+            string retval = TeamSelect(token);
+
+            return retval  + "/teams";
+        }
+
+        public string Endpoint_Standing(int token)
+        {
+            string retval = TeamSelect(token);
+
+            return retval + "/standings";
         }
     }
 }
