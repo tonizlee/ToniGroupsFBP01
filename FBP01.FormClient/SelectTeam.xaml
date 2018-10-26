@@ -1,0 +1,41 @@
+﻿<Window x:Class="FBP01.FormClient.SelectTeam"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FBP01.FormClient"
+        xmlns:view ="clr-namespace:FBP01.FormClient.ViewModel"
+        mc:Ignorable="d"
+        Title="SelectTeam" Height="600" Width="400">
+    <Window.Resources>
+        <view:ViewModelBase x:Key="ViewModelBase"/>
+    </Window.Resources>
+    <Window.DataContext>
+        <view:MainViewModel/>
+    </Window.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <ComboBox Name="LeagueSelection" VerticalAlignment="Center" HorizontalAlignment="Center" Width="240" Height="30" ItemsSource="{Binding Path=LeagueListStr}" SelectedIndex="{Binding Path=LeagueSelected}"/>
+            <Button Grid.Column="1" Content="Select" Margin="10" Command="{Binding Path=LoadTeamList}"/>
+        </Grid>
+        <ListView Grid.Row="1" Name="TeamSelection"  ScrollViewer.VerticalScrollBarVisibility="Auto" ItemsSource="{Binding Path=teamList}" SelectedIndex="{Binding Path=TeamSelected}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=team_short_name}" Header="Short Name" Width="100"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=team_name}" Header="Full Name" Width="180"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Grid.Row="2" Margin="20,10" Command="{Binding Path=SetMainTeam}" Content="Set Main Team" Background="Aqua"/>
+
+    </Grid>
+</Window>

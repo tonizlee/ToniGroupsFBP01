@@ -4,9 +4,69 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FBP01.FormClient"
+        xmlns:view ="clr-namespace:FBP01.FormClient.ViewModel"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="600" Width="1000">
+    <Window.Resources>
+        <view:ViewModelBase x:Key="ViewModelBase"/>
+    </Window.Resources>
+    <Window.DataContext>
+        <view:MainViewModel/>
+    </Window.DataContext>
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="3*"/>
+        </Grid.RowDefinitions>
+        <Border BorderBrush="Blue" BorderThickness="0,0,0,1" Margin="10,0"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="180"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="180"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Column="1" Text="TeamName" VerticalAlignment="Center" FontSize="30" Margin="20" FontWeight="Bold"/>
+
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Border BorderBrush="Blue" BorderThickness="0,0,1,0" Margin="0,10"/>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <DataGrid Grid.Row="0" Margin="10">
+
+                </DataGrid>
+
+                <ListBox Grid.Row="1" Margin="10">
+
+                </ListBox>
+
+            </Grid>
+
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Button Grid.Row="0" Content="Btn1" Margin="10" FontSize="20" Command="{Binding Path=OpenTeamSelect}"/>
+                <Button Grid.Row="1" Content="Btn1" Margin="10" FontSize="20" Command="{Binding Path=OpenStandingEx}"/>
+                <Button Grid.Row="2" Content="Btn1" Margin="10" FontSize="20"/>
+                <Button Grid.Row="3" Content="Btn1" Margin="10" FontSize="20"/>
+            </Grid>
+
+
+        </Grid>
     </Grid>
 </Window>

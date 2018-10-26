@@ -43,7 +43,7 @@ namespace FBP01.Framework.Controller
                 return jval;
             }
 
-            return Beautify(retval);
+            return retval;
         }
     }
 }

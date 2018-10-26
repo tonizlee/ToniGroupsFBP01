@@ -17,49 +17,37 @@ namespace FBP01.Framework.Controller
                     league = "/WC";
                     break;
                 case 1:
-                    league = "/BL1";
+                    league = "/CL";
                     break;
                 case 2:
-                    league = "/BL2";
+                    league = "/BL1";
                     break;
                 case 3:
-                    league = "/PL";
+                    league = "/BL2";
                     break;
                 case 4:
-                    league = "/ELC";
+                    league = "/PL";
                     break;
                 case 5:
-                    league = "/SA";
+                    league = "/ELC";
                     break;
                 case 6:
-                    league = "/SB";
+                    league = "/SA";
                     break;
                 case 7:
-                    league = "/PD";
+                    league = "/SB";
                     break;
                 case 8:
-                    league = "/SD";
+                    league = "/PD";//restricted
                     break;
                 case 9:
                     league = "/FL1";
                     break;
                 case 10:
-                    league = "/FL2";
+                    league = "/DED";//restricted
                     break;
                 case 11:
-                    league = "/DED";
-                    break;
-                case 12:
                     league = "/PPL";
-                    break;
-                case 13:
-                    league = "/GSL";
-                    break;
-                case 14:
-                    league = "/CL";
-                    break;
-                case 15:
-                    league = "/EL";
                     break;
             }
 
@@ -78,6 +66,14 @@ namespace FBP01.Framework.Controller
             string retval = TeamSelect(token);
 
             return retval + "/standings";
+        }
+
+        public string Endpoint_Squad(string id)
+        {
+            string retval = "teams";
+            string idToStr = id;
+
+            return retval + "/" + idToStr;
         }
     }
 }
